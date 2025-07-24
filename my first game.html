@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini GTA Style Game</title>
+  <style>
+    canvas {
+      border: 2px solid black;
+      background: url('https://i.imgur.com/8nJdW8c.png'); /* street-like background */
+      background-size: cover;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+const car = {
+  x: 400,
+  y: 300,
+  width: 40,
+  height: 70,
+  color: "red",
+  speed: 4,
+  dx: 0,
+  dy: 0
+};
+
+function drawCar() {
+  ctx.fillStyle = car.color;
+  ctx.fillRect(car.x, car.y, car.width, car.height);
+}
+
+function clear() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function newPos() {
+  car.x += car.dx;
+  car.y += car.dy;
+
+  // Boundary limits
+  if (car.x < 0) car.x = 0;
+  if (car.y < 0) car.y = 0;
+  if (car.x + car.width > canvas.width) car.x = canvas.width - car.width;
+  if (car.y + car.height > canvas.height) car.y = canvas.height - car.height;
+}
+
+function updateGameArea() {
+  clear();
+  drawCar();
+  newPos();
+  requestAnimationFrame(updateGameArea);
+}
+
+function moveUp() { car.dy = -car.speed; }
+function moveDown() { car.dy = car.speed; }
+function moveLeft() { car.dx = -car.speed; }
+function moveRight() { car.dx = car.speed; }
+function stopX() { car.dx = 0; }
+function stopY() { car.dy = 0; }
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowUp") moveUp();
+  else if (e.key === "ArrowDown") moveDown();
+  else if (e.key === "ArrowLeft") moveLeft();
+  else if (e.key === "ArrowRight") moveRight();
+});
+
+document.addEventListener("keyup", (e) => {
+  if (e.key === "ArrowUp" || e.key === "ArrowDown") stopY();
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") stopX();
+});
+
+updateGameArea();
+</script>
+
+</body>
+</html>

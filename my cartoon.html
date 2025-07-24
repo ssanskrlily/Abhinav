@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doraemon Style Cartoon</title>
+  <style>
+    body {
+      margin: 0;
+      background: skyblue;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    .ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      background: green;
+    }
+
+    .doraemon {
+      position: absolute;
+      bottom: 100px;
+      left: 100px;
+      width: 100px;
+      height: 150px;
+      background: radial-gradient(circle at center, #00aaff 50%, #0077cc 100%);
+      border-radius: 50% 50% 40% 40%;
+      animation: bounce 1s infinite alternate;
+    }
+
+    .face {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      width: 80px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .eye {
+      position: absolute;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .eye.left {
+      left: 10px;
+    }
+
+    .eye.right {
+      right: 10px;
+    }
+
+    .pupil {
+      width: 8px;
+      height: 8px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+    }
+
+    .nose {
+      position: absolute;
+      top: 30px;
+      left: 35px;
+      width: 10px;
+      height: 10px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(10px);
+      }
+    }
+
+    .talk {
+      position: absolute;
+      bottom: 200px;
+      left: 220px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 200px;
+      font-weight: bold;
+      display: none;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<div class="doraemon">
+  <div class="face">
+    <div class="eye left"><div class="pupil"></div></div>
+    <div class="eye right"><div class="pupil"></div></div>
+    <div class="nose"></div>
+  </div>
+</div>
+
+<div class="ground"></div>
+<div class="talk" id="talkBox">नमस्ते! मैं डोरेमोन हूँ!</div>
+
+<script>
+  const doraemon = document.querySelector('.doraemon');
+  const talkBox = document.getElementById('talkBox');
+
+  setTimeout(() => {
+    talkBox.style.display = 'block';
+  }, 1000);
+
+  // Move Doraemon
+  let position = 100;
+  function moveRight() {
+    if (position < window.innerWidth - 120) {
+      position += 2;
+      doraemon.style.left = position + 'px';
+    }
+  }
+
+  setInterval(moveRight, 30);
+</script>
+
+</body>
+</html>

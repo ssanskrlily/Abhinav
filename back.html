@@ -1,0 +1,118 @@
+<html>
+<head>
+<title> Learn HTML </title>
+<h1><b><i>Welcome to Sahu Family</i></b></h1>
+<meta charset="UTF-8">
+<meta name="description" content="This field contains information about your page. It is usually around two sentences long.">.
+<meta name="author" content="Conor Sheils">
+
+<body>
+  <p><h2><a href="https://google.com">Click Here to search </a></h2></p>
+
+  <p><h2><a href="https://html.com/">Learn HTML Click Here </a></h2></body></p>
+  <strong><em><u> U Tag is used for  Under Line the Character </u> <b><sup>Sup Tag is used for super script </sup></b> <sub>Sub Tag is used for Subscript and </sub>
+<p></p>
+<img src="c:/pannu/abhitech.jpg" alt="Describe the image" height="X" width="X">
+
+<H3> OL tage is used to create List</H3>
+<ol>
+<li>Sanskriti Sahu </li>
+<li>Abhinav Sahu </li>
+<li><a href="c:/pannu/test/abhigyan.html">Abhigyan Sahu </a> </li>
+</ol>
+<H3> UL tage is used to un order list which will not show the number</H3>
+<ul>
+<li>Vinod Sahu </li>
+<li>Pramod Sahu</li>
+<li>Manoj Sahu</li>
+</ul>
+<dl>
+<dt>Item</dt>
+<dd>you can use DD tag to write Defination</dd>
+</dl>
+
+
+<H3> Table Tag is used to create tble and TR used for Table Row </H3>
+ <style>
+        body {
+            text-align:left;
+        }
+        table {
+            margin: 0 auto;
+            height: 30vh;
+            width: 50vh;
+        }
+        table,
+        th,
+        td {
+            border-radius: 10px;
+        }
+        h1 {
+            color: rgb(47, 128, 0);
+        }
+    </style>
+
+<table border="1">
+  <caption><b>We are Sahu Family </b></caption>
+  <thead>
+    <tr>
+      <th>Vinod Sahu </th>
+      <th>pramod Sahu</th>
+      <th>Manoj Sahu</th>
+      <th>Archna Sahu</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sanskriti Sahu</td>
+      <td>Akriti Sahu</td>
+      <td>Akshat Sahu</td>
+      <td>Pihu Sahu</td>
+      
+    </tr> 
+    <tr>
+      <td>Abhinav Sahu</td>
+      <td>Abhyuday Sahu</td>
+      <td>Srishti Sahu</td>
+      
+    </tr>
+    <tr>
+      <td>Abhigyan Sahu</td>
+      <td>Ujjawal Sahu</td>
+      <td>  </td>
+      
+    </tr>
+  </tbody> 
+   
+</table>
+
+  <h1>Multiplication Tables (1 to 10)</h1>
+  <div id="tables-output">
+    </div>
+    <script>
+                function generateTables() {
+          const outputDiv = document.getElementById('tables-output');
+          outputDiv.innerHTML = ''; 
+
+          for (let i = 2; i <= 100; i++) {
+            const tableHeader = document.createElement('h3');
+            tableHeader.textContent = `Multiplication Table of ${i}`;
+            outputDiv.appendChild(tableHeader);
+
+            const tableList = document.createElement('ul');
+
+            for (let j = 1; j <= 10; j++) {
+              const result = i * j;
+              const listItem = document.createElement('li');
+              listItem.textContent = `${i} x ${j} = ${result}`;
+              tableList.appendChild(listItem);
+            }
+            outputDiv.appendChild(tableList);
+          }
+        }
+        generateTables(); // Call the function to display tables on page load
+    </script>
+</head>
+</body>
+</html>
